@@ -4,13 +4,16 @@ import ContactContext from "../context/contact/ContactContext";
 
 const ContactItem = ({ contact: { id, name, email, phone, type } }) => {
   const contactContext = useContext(ContactContext);
-  const { deleteContact } = contactContext;
+  const { deleteContact, setCurrent, clearCurrent } = contactContext;
+
+  const onEdit = () => {
+    setCurrent({ id, name, email, phone, type });
+  };
 
   const onDelete = () => {
     deleteContact(id);
+    clearCurrent();
   };
-
-  const onEditClick = () => {};
 
   return (
     <div className="card bg-light">
@@ -39,7 +42,7 @@ const ContactItem = ({ contact: { id, name, email, phone, type } }) => {
         )}
       </ul>
       <p>
-        <button className="btn btn-dark btn-sm" onClick={onEditClick}>
+        <button className="btn btn-dark btn-sm" onClick={onEdit}>
           Edit
         </button>
         <button className="btn btn-danger btn-sm" onClick={onDelete}>

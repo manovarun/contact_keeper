@@ -2,6 +2,10 @@ import React, { useState, useContext } from "react";
 import ContactContext from "../context/contact/ContactContext";
 
 const ContactForm = () => {
+  const contactContext = useContext(ContactContext);
+
+  const { addContact } = contactContext;
+
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -9,10 +13,6 @@ const ContactForm = () => {
     type: "personal"
   });
   const { name, email, phone, type } = contact;
-
-  const contactContext = useContext(ContactContext);
-
-  const { addContact } = contactContext;
 
   const onChange = e => {
     setContact({ ...contact, [e.target.name]: e.target.value });

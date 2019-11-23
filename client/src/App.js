@@ -6,6 +6,8 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import ContactState from "./components/context/contact/ContactState";
 import AuthState from "./components/context/auth/AuthState";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
               <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/about" component={About} />
+                <Route path="/register" component={Register} />
+                <Route path="/login" component={Login} />
               </Switch>
             </div>
           </Fragment>

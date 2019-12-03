@@ -35,7 +35,6 @@ const Login = props => {
     } else {
       login({ email, password });
     }
-
     // setUser({
     //   email: "",
     //   password: ""
